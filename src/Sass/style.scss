@@ -16,7 +16,7 @@ ul{
 }
 
 body{
-    background-color: $bg-dark;
+    
     font-family: monospace;
     color: white;
     font-size: 0.8rem;
@@ -46,6 +46,15 @@ img{
     color: $muted-white;
 }
 
+.bg-dark{
+    background-color: $bg-dark;
+}
+
+.bg-light{
+    background-color: $bg-light;
+}
+
+// Classes
 .App{
     margin: auto;
     width: 100%;
@@ -201,9 +210,9 @@ img{
 
 .stats-container{
     grid-template-columns: repeat(3, 1fr);
-    padding: 0.5em;
+    padding: 1em 0.5em;
     gap: 0.5em;
-    background-color: $bg-dark;
+    
     border-radius: $border-radius;
     text-align: center;
     place-items: center;
@@ -213,7 +222,7 @@ img{
     .stats-container{
         text-align: left;
         place-items: start;
-        padding: 1.5em;
+        padding: 1em;
     }
 }
 
@@ -263,4 +272,26 @@ img{
     body{
         font-size: 1.5em;
     }
+}
+
+// Themes
+
+@mixin theme($bg-color, $container-color, $txt-color) {
+    .header{
+        color: $txt-color;
+    }
+    .profile-container{
+        background-color: $container-color;
+    }
+    .stats-container{
+        background-color: $bg-color;
+    } 
+}
+
+.dark-theme{
+    @include theme($dark-theme...);
+}
+
+.light-theme{
+    @include theme($light-theme...);
 }

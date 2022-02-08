@@ -8,6 +8,7 @@ $bg-light: white;
 
 
 $bg-dark: rgb(20, 31, 56);
+
 $bg-container-dark: rgb(33, 49, 87);
 
 
@@ -19,3 +20,9 @@ $blue-accent: rgb(61, 137, 250);
 
 
 $border-radius: 10px;
+
+// Themes
+
+$dark-theme: $bg-dark, $bg-container-dark, white;
+
+$light-theme: white, grey, black;

@@ -15,8 +15,24 @@ function App() {
 
   const [username, setUsername] = useState('');
   const [profile, setProfile] = useState([]);
+  const [darktheme, setDarktheme] = useState(false);
 
+  useEffect(()=> {
+    if (window.matchMedia) {
+    // Check if the dark-mode Media-Query matches
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+      // Dark
+      setDarktheme(true);
+      document.body.classList.add('bg-dark');
+    } else {
+      // Light
+      setDarktheme(false);
+    }
+  }
+  }, [])
+  
 
+  
   // fetches the user profile
   const getUser = (USERNAME) => {
     fetch(`https://api.github.com/users/${USERNAME}`)
@@ -45,7 +61,7 @@ function App() {
   } 
 
   return (
-    <div className="App">
+    <div className={`App ${darktheme ? 'dark-theme':'light-theme'}`}>
       <div className="header">
         <div className="logo">
           <h1>devfinder</h1>
