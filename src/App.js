@@ -66,9 +66,23 @@ function App() {
         <div className="logo">
           <h1>devfinder</h1>
         </div>
-        <div className="theme">
-          <p>Light</p>
-        </div>
+        <button onClick={() => {setDarktheme(prev => !prev);
+                                document.body.classList.toggle('bg-dark');
+         }}>
+          <div className="theme-container flex">
+            { darktheme ? 
+            <>
+              <p>Light</p>
+              <Sun />
+            </> :
+            <>
+              <p>Dark</p>
+              <Moon />
+            </>
+            }
+          </div>
+        </button>
+        
       </div>
       <div className="search-bar flex">
         <div className="left flex">

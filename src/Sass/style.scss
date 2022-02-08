@@ -16,7 +16,7 @@ ul{
 }
 
 body{
-    
+    background-color: $bg-light;
     font-family: monospace;
     color: white;
     font-size: 0.8rem;
@@ -81,6 +81,28 @@ img{
 
     .logo > h1{
         font-size: 2rem;
+    }
+
+    button{
+        background-color: transparent;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .theme-container{
+        align-items: center;
+
+        p{
+            
+            font-family: 'Teko', sans-serif;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            letter-spacing: 2px;
+        }
+        >*{
+            margin: 0 0.5em;
+        }
     }
 }
 
@@ -272,6 +294,10 @@ img{
     body{
         font-size: 1.5em;
     }
+
+    .theme-container{
+        font-size: 1.3em;
+    }
 }
 
 // Themes
@@ -282,6 +308,9 @@ img{
     }
     .profile-container{
         background-color: $container-color;
+    }
+    .theme-container{
+        color: $txt-color;
     }
     .stats-container{
         background-color: $bg-color;
