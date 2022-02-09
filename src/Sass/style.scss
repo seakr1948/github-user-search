@@ -20,7 +20,7 @@ body{
     font-family: monospace;
     color: white;
     font-size: 0.8rem;
-    
+    transition: background-color $transition-time ease-in;
 }
 
 input{
@@ -63,7 +63,8 @@ img{
     padding: 2em;
 
     > *{
-        margin: 0.5em 0;
+        margin: 1em 0;
+        
     }
 }
 
@@ -78,9 +79,10 @@ img{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
     .logo > h1{
         font-size: 2rem;
+        transition: color $transition-time ease-in;
     }
 
     button{
@@ -99,6 +101,7 @@ img{
             text-transform: uppercase;
             font-size: 1.5em;
             letter-spacing: 2px;
+            transition: 0.5s color ease-in, background-color 1s ease-in;
         }
         >*{
             margin: 0 0.5em;
@@ -107,11 +110,13 @@ img{
 }
 
 .search-bar{
-    background-color: $bg-container-dark;
+    
     padding: 0.5em 0.5em;
     justify-content: space-between;
     font-size: 1.5em;
     border-radius: $border-radius;
+    box-shadow: 0px 10px 50px 0px hsla(0, 0%, 0%, 0.2);
+    transition: color $transition-time ease-in, background-color $transition-time ease-in;
     .left{
         width: 100%;
         align-items: center;
@@ -129,8 +134,7 @@ img{
         border: none;
         background: transparent;
         outline: none;
-        caret-color: white;
-        color: white;
+        transition: color $transition-time ease-in;        
     }
 
     input:focus{
@@ -143,8 +147,10 @@ img{
         color: white;
         border-radius: $border-radius;
         padding: 1em 1.5em;
-        
+        cursor: pointer;
+        transition: background 0.2s ease-in;
     }
+
 }
 
 @media (min-width: $tablet-size) {
@@ -155,13 +161,17 @@ img{
 }
 
 .profile-container{
+    
     display: flex;
     flex-flow: column nowrap;
-    background-color: $bg-container-dark;
+    transition: background-color $transition-time ease-in;
     padding: 2em;
     border-radius: $border-radius;
+    box-shadow: 0px 10px 30px 0px hsla(0, 0%, 0%, 0.2);
+    
     > *{
         margin: 1em 0;
+        
     }
 }
 
@@ -197,14 +207,21 @@ img{
 
 .names{
     flex-flow:column nowrap;
+    
+    
     a {
         text-decoration: none;
         color: rgb(2, 120, 255);
     }
 }
 
+.bio{
+    transition: color $transition-time ease-in
+}
+
 .profile-name{
     font-size:1.2em;
+    transition: color $transition-time ease-in;
 }
 
 @media (min-width: 1000px) {
@@ -234,7 +251,7 @@ img{
     grid-template-columns: repeat(3, 1fr);
     padding: 1em 0.5em;
     gap: 0.5em;
-    
+    transition: background-color $transition-time ease-in;
     border-radius: $border-radius;
     text-align: center;
     place-items: center;
@@ -254,20 +271,25 @@ img{
     }
 }
 
-
+.stat-formatting{
+    transition: color $transition-time ease-in;
+}
 
 .stat-formatting span{
     display: block;
     font-weight: bold;
     font-size: 20px;
     color: white;
+    transition: color $transition-time ease-in;
 }
 
 .misc-item{
     align-items: center;
+    transition: color $transition-time ease-in, background-color $transition-time ease-in;
     :first-child{
         margin-right: 0.5em;
         fill: white;
+        transition: fill $transition-time ease-in;
     }
 }
 
@@ -302,25 +324,75 @@ img{
 
 // Themes
 
-@mixin theme($bg-color, $container-color, $txt-color) {
+@mixin theme($bg-color, $container-color, $txt-color, $icon-color, $carot-color) {
+
+    body{
+        color: $txt-color;
+        
+    }
     .header{
         color: $txt-color;
     }
+    .search-bar{
+        background-color: $container-color;
+    
+        
+    }
+
     .profile-container{
         background-color: $container-color;
+    }
+    .bio{
+        color: $txt-color;
     }
     .theme-container{
         color: $txt-color;
     }
     .stats-container{
         background-color: $bg-color;
+    }
+    .misc-item{
+        color: $icon-color;
+        :first-child{
+            fill: $icon-color;
+        }
     } 
+
+    
 }
 
 .dark-theme{
     @include theme($dark-theme...);
+    .left{
+        input{
+            caret-color: white;
+            color: white;
+        }
+    }
+
+    .search-bar{
+        button:hover{
+            background-color: lighten($blue-accent, $amount: 5%);
+        }
+    }
 }
 
 .light-theme{
     @include theme($light-theme...);
+    .profile-name{
+        color: black;
+    }
+
+    .stat-formatting{
+        color: grey;
+    }
+
+    .stat-formatting span{
+        color: black;
+    }
+    .search-bar{
+        button:hover{
+            background-color: darken($blue-accent, $amount: 10%);
+        }
+    }
 }

@@ -23,6 +23,10 @@ $border-radius: 10px;
 
 // Themes
 
-$dark-theme: $bg-dark, $bg-container-dark, white;
+$dark-theme: $bg-dark, $bg-container-dark, white, white, white;
 
-$light-theme: $bg-light, white, black;
+$light-theme: $bg-light, white, $light-accent-text, $light-accent-text, black;
+
+// Transition time
+
+$transition-time: 0.5s;
