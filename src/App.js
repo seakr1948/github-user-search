@@ -10,7 +10,6 @@ import {ReactComponent as Location} from './assets/icon-location.svg';
 import {ReactComponent as Website} from './assets/icon-website.svg';
 
 function App() {
-  let date = '';
   const month = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   const [username, setUsername] = useState('');
