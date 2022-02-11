@@ -112,7 +112,7 @@ function App() {
               <div className="names flex">
                 <div>
                   <p className='profile-name'>{profile.name !== null ? profile.name : profile.login}</p>
-                  <a className ="login-name" href={profile.html_url} target="_blank">@{profile.login}</a>
+                  <a className ="login-name" href={profile.html_url} target="_blank">@{profile.login} rel="noopener noreferrer"</a>
                 </div>
                 <div className="date-container">
                   <p className="date muted-white">{formatDate(profile.created_at)}</p>
